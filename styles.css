@@ -1,0 +1,315 @@
+html, body {
+    width: 620px;
+    max-width: 620px;
+    overflow-x: hidden;
+}
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    width: 600px;
+    min-height: 100px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #5b7cfa 0%, #7b4dfe 100%);
+    color: white;
+    padding: 16px 18px;
+    text-align: center;
+}
+.header.compact h1 { font-size: 18px; }
+.header.compact p { font-size: 12px; opacity: .95; }
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Contenido */
+.content { padding: 16px 18px; }
+
+/* Secciones */
+.section {
+    margin-bottom: 14px;
+    background: #fafbfc;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #eef0f2;
+}
+
+.section-title { font-size: 15px; font-weight: 600; color: #495057; }
+.collapsible > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.collapsible > summary::-webkit-details-marker { display: none; }
+.collapsible[open] > summary { margin-bottom: 8px; }
+
+/* Botones */
+.button-group { 
+    display: grid; 
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px; 
+    margin-bottom: 12px; 
+}
+
+.btn-primary, .btn-danger, .btn-secondary, .btn-success {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #1e7e34;
+    transform: translateY(-2px);
+}
+
+.btn-primary:disabled, .btn-danger:disabled, .btn-secondary:disabled, .btn-success:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Iconos */
+.icon { width: 14px; height: 14px; }
+
+/* Indicador de estado */
+.status-indicator { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #6c757d; }
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.status-dot.active {
+    background: #28a745;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Contenedor de transcripción */
+.transcription-container {
+    position: relative;
+}
+
+.real-time-indicator {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #28a745;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.real-time-indicator.show {
+    display: flex;
+}
+
+.pulse {
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+/* Textareas */
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#transcribedText { min-height: 120px; }
+
+#summaryText { min-height: 80px; background: #f8f9fa; }
+
+/* Estadísticas de texto */
+.text-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* Controles de IA */
+.ai-controls { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; margin-bottom: 12px; }
+
+.select-group { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+
+select {
+    padding: 8px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Loader */
+.loader {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 10px 16px;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer p { font-size: 11px; color: #6c757d; }
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        width: 100%;
+        border-radius: 0;
+    }
+    .button-group { grid-template-columns: repeat(2, 1fr); }
+    .ai-controls { grid-template-columns: 1fr; }
+    .select-group { grid-template-columns: 1fr; }
+}
+
+/* Animaciones */
+.section {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estados de hover mejorados */
+.btn-primary:hover, .btn-danger:hover, .btn-secondary:hover, .btn-success:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar personalizado */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
